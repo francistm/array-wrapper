@@ -1,9 +1,8 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-
 use Francis\ArrayWrapper\Wrapper;
 use Francis\ArrayWrapper\WrapperOption;
+use PHPUnit\Framework\TestCase;
 
 class WrapperTest extends TestCase
 {

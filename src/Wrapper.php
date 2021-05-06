@@ -2,20 +2,38 @@
 
 namespace Francis\ArrayWrapper;
 
-class Wrapper
+use JsonSerializable;
+
+class Wrapper implements JsonSerializable
 {
-  protected $data;
-  protected $columns;
+    protected $data;
+    protected $columns;
+    protected $idColumn;
 
-  public function __construct(array $data, WrapperOption $option)
-  {
-  }
+    public function __construct(array $data, WrapperOption $option)
+    {
+        $this->columns = $option['columns'];
+        $this->idColumn = $option['id'];
 
-  public function filter($callback) {
-      return $this;
-  }
+        $this->data = array_map(function ($row) use ($option) {
+            return new Row($row, $option['columns']);
+        }, $data);
+    }
 
-  public function length() {
-      return count($this->data);
-  }
+    public function filter($callback)
+    {
+        $this->data = array_filter($this->data, $callback);
+
+        return $this;
+    }
+
+    public function length()
+    {
+        return count($this->data);
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->data;
+    }
 }
