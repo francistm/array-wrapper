@@ -1,0 +1,24 @@
+{
+    "name": "francis/array-wrapper",
+    "type": "library",
+    "authors": [
+        {
+            "name": "francis",
+            "email": "francis.tm@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+      "psr-4": {
+        "Francis\\ArrayWrapper\\": "src/"
+      }
+    },
+    "scripts": {
+      "test": "vendor/bin/phpunit"
+    }
+}
