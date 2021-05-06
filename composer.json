@@ -7,6 +7,8 @@
             "email": "francis.tm@gmail.com"
         }
     ],
+    "license": "MIT",
+    "description": "An wrapper for array operations",
     "require": {
         "ext-json": "*"
     },
